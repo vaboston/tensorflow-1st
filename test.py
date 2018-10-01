@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*- 
 import matplotlib.pyplot as plt
 import tensorflow as tf
 import numpy as np
@@ -32,8 +34,13 @@ if __name__ == '__main__':
 
     # print features
     tf_features = tf.placeholder(tf.float32, shape=[None, 2])
+    print('tf_features: ', tf_features)
+
+
     tf_targets = tf.placeholder(tf.float32, shape=[None, 1])
-    print features
+    print('tf_targets: ', tf_targets)
+
+    # print features
     # First
     w1 = tf.Variable(tf.random_normal([2, 3]))
     b1 = tf.Variable(tf.zeros([3]))
@@ -59,7 +66,8 @@ if __name__ == '__main__':
     sess = tf.Session()
     sess.run(tf.global_variables_initializer())
 
-    for e in range(10000):
+    for e in range(10):
+ #   for e in range(10000):
 
         sess.run(train, feed_dict={
             tf_features: features,
